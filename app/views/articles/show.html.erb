@@ -2,3 +2,9 @@
 
 <p><strong>Title:</strong> <%= @article.title %> </p>
 <p><strong>Description:</strong> <%= @article.description %> </p>
+
+<div class='d-flex gap-1'>
+    <%= link_to "Edit", edit_article_path(@article) %> |
+    <%= button_to "Delete", article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')" %> |
+    <%= link_to "Return to articles listing page", articles_path %>
+</div>
