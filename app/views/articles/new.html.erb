@@ -1,12 +1,4 @@
 <h1>Create a new Article</h1>
 
-<% if @article.errors.any? %>
-  <h2> The following errors prevented article from being saved</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
+<%= render "message", article: @article %>
 <%= render "form", article: @article %>
