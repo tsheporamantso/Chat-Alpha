@@ -1,24 +1,7 @@
-<% if @article.errors.any? %>
-  <h2> The following errors prevented article from being saved</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<h1> Edit Article </h1>
 
-<%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :title  %><br>
-    <%= form.text_field :title %>
-  </div>
+<%= render "message", article: @article %>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </div>
+<%= render "form", article: @article %>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= link_to "Return to articles listing page", articles_path %>
