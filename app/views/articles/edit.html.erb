@@ -1,3 +1,5 @@
+<h1> Edit Article </h1>
+
 <% if @article.errors.any? %>
   <h2> The following errors prevented article from being saved</h2>
   <ul>
@@ -7,18 +9,5 @@
   </ul>
 <% end %>
 
-<%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :title  %><br>
-    <%= form.text_field :title %>
-  </div>
+<%= render "form", article: @article %>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
