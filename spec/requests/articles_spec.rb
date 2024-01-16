@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Articles", type: :request do
   describe "GET #index" do
+
+    it "assigns all articles to @articles" do
+      get articles_path
+      expect(assigns(:articles)).to eq(Article.all)
+    end
+
     it "returns http success" do
       get articles_path
       expect(response).to have_http_status(:success)
