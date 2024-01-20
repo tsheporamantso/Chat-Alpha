@@ -24,8 +24,7 @@ RSpec.describe "Articles", type: :request do
     end
 
     it "renders the correct index template" do
-      @article = Article.new(title: "Controller test title", description: "Controller test description")
-      @article.save
+      @article = Article.create(title: "Controller test title", description: "Controller test description")
       get article_path(@article)
       expect(response).to render_template(:show)
     end
