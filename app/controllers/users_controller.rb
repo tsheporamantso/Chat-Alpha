@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update] 
+  before_action :set_user, only: [:edit, :update, :show] 
   def new
     @user = User.new
   end
@@ -21,11 +21,14 @@ class UsersController < ApplicationController
   def update
 
     if @user.update(user_params)
-      flash[:sucess] = "Chat-Alpha user #{ @user.username }, has been updated sucessfully"
+      flash[:sucess] = "Your account information was successfully updated"
       redirect_to articles_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
   end
 
   private
