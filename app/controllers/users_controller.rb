@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  before_action :set_user, only: [:edit, :update] 
   def new
     @user = User.new
   end
@@ -16,11 +16,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
 
     if @user.update(user_params)
       flash[:sucess] = "Chat-Alpha user #{ @user.username }, has been updated sucessfully"
@@ -34,6 +32,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end
